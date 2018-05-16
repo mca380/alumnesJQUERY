@@ -4,7 +4,7 @@ function validarDni(inputDni){ //Aquesta funció comprova que el DNI sigui vàli
  
     var dniPatro = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
 
-    var str = inputDni.toString().toUpperCase();
+    var str = inputDni.toString().toUpperCase();//Passa el text introduit per l'usuari a String i a majúscules perque en sigui més fàcil la comprovació. 
 
     
     if (!dniPatro.test(str)) return false;
@@ -24,17 +24,17 @@ app.controller("AlumneController",
 function ($scope) {
     $scope.alumnes = [];
     $scope.Insertar=function(){
-        if (validarDni($scope.inclouAlumne.dni)){
+        if (validarDni($scope.nouAlumne.dni)){
             //Funció per a insertar les dades la taula. 
             $scope.alumnes.push({
-                dni: $scope.inclouAlumne.dni,
-                nom: $scope.inclouAlumne.nom, 
-                llinatges: $scope.inclouAlumne.llinatges,  
-                mail: $scope.inclouAlumne.mail, 
-                nota: $scope.inclouAlumne.nota
+                dni: $scope.nouAlumne.dni,
+                nom: $scope.nouAlumne.nom, 
+                llinatges: $scope.nouAlumne.llinatges,  
+                mail: $scope.nouAlumne.mail, 
+                nota: $scope.nouAlumne.nota
             });
             
-            $scope.inclouAlumne = null;
+            $scope.nouAlumne = null;
             
         }else{
             //DNI incorrecte
@@ -51,10 +51,3 @@ function ($scope) {
     
     
 });
-
-$(function(nota) {
-    $('#table td:last-child:contains(1)').closest('tr').css('background-color', 'red');
-    $('#table td:last-child:contains(2)').closest('tr').css('background-color', 'blue');
-    $('#table td:last-child:contains(3)').closest('tr').css('background-color', 'green');
-    // Así sucesivamente hasta llegar al 10
-  });

@@ -1,15 +1,7 @@
-h1 {
-    text-align: center;
-    color: grey;
-}
 
-table {
-    margin-top: 20px;
-}
-#borrar {
-
-}
-
-body {
-   
-}
+.resaltado {
+    background-color:#FFAAAA;
+  }
+  .resaltado2 {
+      background-color: #719876;
+  }
