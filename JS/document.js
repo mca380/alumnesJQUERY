@@ -24,17 +24,17 @@ app.controller("AlumneController",
 function ($scope) {
     $scope.alumnes = [];
     $scope.Insertar=function(){
-        if (validarDni($scope.nouAlumne.dni)){
+        if (validarDni($scope.inclouAlumne.dni)){
             //Funció per a insertar les dades la taula. 
             $scope.alumnes.push({
-                dni: $scope.nouAlumne.dni,
-                nom: $scope.nouAlumne.nom, 
-                llinatges: $scope.nouAlumne.llinatges,  
-                mail: $scope.nouAlumne.mail, 
-                nota: $scope.nouAlumne.nota
+                dni: $scope.inclouAlumne.dni,
+                nom: $scope.inclouAlumne.nom, 
+                llinatges: $scope.inclouAlumne.llinatges,  
+                mail: $scope.inclouAlumne.mail, 
+                nota: $scope.inclouAlumne.nota
             });
             
-            $scope.nouAlumne = null;
+            $scope.inclouAlumne = null;
             
         }else{
             //DNI incorrecte
