@@ -1,21 +1,21 @@
 function validarDni(inputDni){ //Aquesta funció comprova que el DNI sigui vàlid.
-   
+    
     var lletres = 'TRWAGMYFPDXBNJZSQVHLCKET';
- 
+    
     var dniPatro = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
-
+    
     var str = inputDni.toString().toUpperCase();//Passa el text introduit per l'usuari a String i a majúscules perque en sigui més fàcil la comprovació. 
-
+    
     
     if (!dniPatro.test(str)) return false;
-
+    
     var dni = str
     var lletra = str.substr(-1);
     var posicioLletres = parseInt(dni.substr(0, 8)) % 23;
-
-
+    
+    
     if (lletres.charAt(posicioLletres) === lletra) return true;
-
+    
     return false;
 }
 
@@ -39,7 +39,7 @@ function ($scope) {
         }else{
             //Si el DNI és correcte s'insereixen les demés dades, sinó el sistema no ho permet i ens avisa de l'errada.
             alert("El DNI no és correcte! Revisa'l.");
-          
+            
             
         }
         
