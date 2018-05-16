@@ -13,7 +13,7 @@ function validarDni(inputDni){ //Aquesta funció comprova que el DNI sigui vàli
     var lletra = str.substr(-1);
     var posicioLletres = parseInt(dni.substr(0, 8)) % 23;
 
-
+    
     if (lletres.charAt(posicioLletres) === lletra) return true;
 
     return false;

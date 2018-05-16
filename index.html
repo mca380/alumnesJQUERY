@@ -63,7 +63,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat= "alumne in alumnes" ng-class="{'resaltado': alumne.nota == 1 || alumne.nota == 2 || alumne.nota == 3 || alumne.nota == 4}">
+                <tr ng-repeat= "alumne in alumnes" ng-class="{'destacat': alumne.nota == 1 || alumne.nota == 2 || alumne.nota == 3 || alumne.nota == 4}">
                     <td>{{$index+1}}</td>
                     <td>{{alumne.dni}}</td>
                     <td>{{alumne.nom}}</td>
