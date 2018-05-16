@@ -20,7 +20,7 @@ function validarDni(inputDni){ //Aquesta funció comprova que el DNI sigui vàli
 }
 
 var app = angular.module("alumnes", []);
-app.controller("AlumneController", 
+app.controller("AlumneController", //El controller accedirà a scope.
 function ($scope) {
     $scope.alumnes = [];
     $scope.Insertar=function(){
@@ -37,7 +37,7 @@ function ($scope) {
             $scope.afegirAlumne = null;
             
         }else{
-            //DNI incorrecte
+            //Si el DNI és correcte s'insereixen les demés dades, sinó el sistema no ho permet i ens avisa de l'errada.
             alert("El DNI no és correcte! Revisa'l.");
           
             
