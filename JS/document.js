@@ -13,7 +13,7 @@ function validarDni(inputDni){ //Aquesta funció comprova que el DNI sigui vàli
     var lletra = str.substr(-1);
     var posicioLletres = parseInt(dni.substr(0, 8)) % 23;
 
-    
+
     if (lletres.charAt(posicioLletres) === lletra) return true;
 
     return false;
@@ -24,17 +24,17 @@ app.controller("AlumneController",
 function ($scope) {
     $scope.alumnes = [];
     $scope.Insertar=function(){
-        if (validarDni($scope.nouAlumne.dni)){
+        if (validarDni($scope.afegirAlumne.dni)){
             //Funció per a insertar les dades la taula. 
             $scope.alumnes.push({
-                dni: $scope.nouAlumne.dni,
-                nom: $scope.nouAlumne.nom, 
-                llinatges: $scope.nouAlumne.llinatges,  
-                mail: $scope.nouAlumne.mail, 
-                nota: $scope.nouAlumne.nota
+                dni: $scope.afegirAlumne.dni,
+                nom: $scope.afegirAlumne.nom, 
+                llinatges: $scope.afegirAlumne.llinatges,  
+                mail: $scope.afegirAlumne.mail, 
+                nota: $scope.afegirAlumne.nota
             });
             
-            $scope.nouAlumne = null;
+            $scope.afegirAlumne = null;
             
         }else{
             //DNI incorrecte
