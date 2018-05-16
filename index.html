@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html ng-app = "alumnes">
+<head>
+    <title>Alumnes</title>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-UU2jkdv1M9UEjLje/kygVxqMBq9Jrg9z+Gqvw972H6BqKTzDvLaRJfK7PnzLM4SI" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="document.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+</head>
+<body ng-controller="AlumneController">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">AlumnesAngular</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Inici<span class="sr-only">(current)</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <br><br>
+    <div class="container">
+        <h1> Llistat d'alumnes</h1>
+        <form ng-submit="Insertar()">
+            <div class="form-group">
+                <label for="DNI">DNI:</label>
+                <input type="text" class="form-control"  id="dni" placeholder="Exemple: 79554122K" ng-model="nouAlumne.dni" required></input>
+            </div>
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" class="form-control" id="nom" ng-model="nouAlumne.nom" required>
+            </div>
+            <div class="form-group">
+                <label for="llinatges">Llinatges:</label>
+                <input type="text" class="form-control" id="llinatges" ng-model="nouAlumne.llinatges" required>
+            </div>
+            <div class="form-group">
+                <label for="mail">Mail:</label>
+                <input type="email" class="form-control" id="mail" ng-model="nouAlumne.mail"  required>
+            </div>
+            <div class="form-group">
+                <label for="nota">Nota:</label>
+                <input type="number" class="form-control" id="nota" step="0.05" min="0" max="10" ng-model="nouAlumne.nota" required>
+            </div>
+            <button type="submit" class="btn btn-secondary" id="submit"  ng-click="validarDni(nouAlumne.dni)">Introduir dades</button>
+        </form>
+        <table class="table table-hover"> <!--Taula buida que s'anirà emplenant en funció del que introdueixi l'usuari-->
+            <thead>
+                <tr>
+                    <th scope="col">Alumne</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Llinatges</th>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Nota</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr ng-repeat= "alumne in alumnes">
+                        <td>{{$index+1}}</td>
+                        <td>{{alumne.dni}}</td>
+                        <td>{{alumne.nom}}</td>
+                        <td>{{alumne.llinatges}}</td>
+                        <td>{{alumne.mail}} </td>
+                        <td id="nota">{{alumne.nota}} </td>
+                        <td><button class="btn btn-danger" id="borrar"  ng-click="borrar($index)">Elimina</button></td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+    </body>
+        </html>
